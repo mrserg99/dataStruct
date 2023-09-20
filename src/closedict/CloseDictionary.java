@@ -153,7 +153,7 @@ public class CloseDictionary implements Dict {
                 return;
             }
             //Если мы нашли ближайший удалённый элемент, то запишем его позицию
-            if (deleteElement == -1 && persons[newKey].name[0] == '\u0000') {
+            if (deleteElement == -1 && persons[newKey].name == null) {
                 deleteElement = newKey;
             }
             //Если по новому ключу уже есть какое-то значение, которое не удовлетворяет требованиям, то обновляем ключ
@@ -177,7 +177,7 @@ public class CloseDictionary implements Dict {
             //Проверим то ли это имя, которое нам нужно удалить
             if (persons[key].equals(x)) {
                 //Если Да, то удаляем имя меняя значения на символ нуля
-                persons[key].name[0] = '\u0000';
+                persons[key].name = null;
             } else {
                 //Иначе нужно найти нужное нам имя в других ячейках.
                 //Обновляем ключ
@@ -191,7 +191,7 @@ public class CloseDictionary implements Dict {
                         return;
                     // Иначе если нашли совпадения по имени, то удаляем это значение меняя его на символ нуля
                     if (persons[newKey].equals(x)) {
-                        persons[newKey].name[0] = '\u0000';
+                        persons[newKey].name = null;
                     }
                     //Иначе обновляем ключ
                     newKey = hash(key + ++j);
